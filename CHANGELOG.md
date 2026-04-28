@@ -1,6 +1,15 @@
 CHANGES
 =======
 
+V 0.4.3
+----------
+
+- Dropped the library dependency on `selecto_components`; PostgreSQL adapter
+  ownership now stays focused on the Selecto database-adapter contract without
+  pulling UI package test/runtime dependencies.
+- Updated README dependency guidance for the coordinated point release.
+- Bump package version to `0.4.3`.
+
 V 0.4.2
 ----------
 
