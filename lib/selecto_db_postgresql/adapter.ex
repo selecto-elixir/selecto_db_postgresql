@@ -14,9 +14,9 @@ defmodule SelectoDBPostgreSQL.Adapter do
   def connect(opts) when is_map(opts), do: connect(Map.to_list(opts))
 
   def connect(opts) when is_list(opts) do
-    case Postgrex.start_link(opts) do
-      {:ok, conn} -> {:ok, conn}
-      {:error, reason} -> {:error, reason}
+    with {:ok, _started_apps} <- Application.ensure_all_started(:postgrex),
+         {:ok, conn} <- Postgrex.start_link(opts) do
+      {:ok, conn}
     end
   end
 
